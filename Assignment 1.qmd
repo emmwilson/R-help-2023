@@ -1,0 +1,150 @@
+---
+title: "assignment 1"
+format: html
+editor: visual
+---
+
+## **Chapter 4: Introduction to R**
+
+1.**Section 4.5 Comments HAND IN**
+
+What does the assignment operator do? (1 mark)
+
+It gives your object (left of the operator) a name (right of the operator) and stores it in your environment.
+
+What is the command for the assignment operator? (0.5 marks)
+
+\<- (or alt + -)
+
+```{r}
+<- 
+```
+
+How do you write a comment in your code? (0.5 marks)
+
+within code use \#
+
+\*if using R markdown or Quorto you can type text outside of code chunks without \#
+
+```{r}
+# this is how you comment within code
+```
+
+2\.
+
+**4.9 Data structures - VECTORS HAND IN**
+
+What is the type and length of vector y (y \<- c(2, 3, 5, 7)). (1.0 mark)
+
+y has a length of 4
+
+```{r}
+y <- c(2, 3, 5, 7)
+type_y <- class(y)
+length_y <- length(y)
+```
+
+3\.
+
+**4.9 Data structures - VECTORS HAND IN**
+
+Copy the line of code you used to create a vector with a sequence of numbers from 0-20, increasing by 5. **(Hint: You must use the seq function to generate your vector.)** (1.0 mark)
+
+```{r}
+x <- seq(from = 0, to = 20, by = 5)
+# can also be written as
+x <- seq(0, 20, 5)
+```
+
+4\.
+
+**4.9 Data structures - Matrices HAND IN**
+
+Hand in a copy of the code you used to create the above matrix (3 by 3 matrix in which the elements are the numbers from one to nine). **ALSO, copy-paste the resulting matrix from the console into this document.** (2.0 marks)
+
+```{r}
+matrix <- matrix(seq(1,9,1), 
+                 nrow = 3,
+                 ncol = 3)
+matrix
+```
+
+5\.
+
+**4.9 Data structures - Lists HAND IN**
+
+State the length of the object my_list. (0.5 mark)
+
+my list has a length of 4
+
+```{r}
+my_list <- list(5, "hello", TRUE, 1+4i)
+my_list
+length(my_list)
+```
+
+6\.
+
+**4.9 Data structures - Data frames HAND IN**
+
+Write down what information you can get from the functions nrow(), ncol(), head(), and tail() that describe the data frame df you just created. **(HINT: Write or copy-past what is returned in the console when the above functions are executed.)**                                (2.0 marks, 0.5 each)
+
+```{r}
+df <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+df
+
+nrow(df) #number of rows
+ncol(df) #number of columns
+head(df) #first n rows
+tail(df) #last n rows
+
+```
+
+7\.
+
+**10.2  Scatter plots with plot(x, y) HAND IN**
+
+1\. Which two vectors below will generate a plot if executed before plot(a,b)? (1.0 mark)
+
+*1.         a \<- c(1, 3, 5)*
+
+*2.         a \<- c(2, 4, 5, 6, 7)*
+
+*3.         b \<- c(2, 2, 4, 6)*
+
+*4.         b \<- c(2, 4, 6)*
+
+only 1 and 4 will give a scatter plot because they have the same length (3)
+
+2\. A friend has written the code below, but it will not run. What do you think the problem could be? (1.0 mark)
+
+a \<- c(1, 2, 3)
+
+b \<- c(2, 4, 6)
+
+plot(x, y)
+
+the objects they are calling don't have the same name as the objects they created
+
+8.**10.3.1 Getting a bit more sophisticated HAND IN**
+
+Re-create the graph above on your own, but this time, make the symbol for fishA an open square and the symbol for fishB a filled circle **(HINT look at the pch cheat sheet in section 9.7). Export this plot and paste it below.** (2.5 marks) 
+
+```{r}
+temp <- c(5, 8, 12, 16, 20, 23)
+fishA <- c(36, 42, 59, 73, 88, 96)
+fishB <- c(40, 49, 61, 71, 82, 90)
+plot(temp, fishA, pch = 0, xlab = "temperature (degrees C)", ylab = "opercular beats (bpm)")
+points(temp, fishB, pch = 19, col = "dimgray")
+```
+
+9\.
+
+**10.4 Line graphs HAND IN**
+
+Re-create the graph above on your own, but this time, also add a line for fishB which joins the points as is shown above for fishA. Just as in section [10.3]{.underline}, where we used the points() function to an existing plot, we can use the lines() function to add a line to an existing plot. To select the line type, use lty = 2 (or another value), just as you would use pch in the points() function. **Export this plot and paste it below.** (2.0 marks)
+
+```{r}
+plot(temp, fishA, pch = 17, type = "l", xlab = "temperature (degrees C)", ylab = "opercular beats (bpm)")
+lines(temp, fishB, lty = 2)
+```
